@@ -1,0 +1,354 @@
+body {
+  color: #555;
+}
+
+.navbar .nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #20C9AC;
+  transition: width 0.3s ease;
+}
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+.navbar .resume-btn {
+  position: relative;
+  overflow: hidden;
+}
+.navbar .resume-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+}
+.navbar .resume-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+.navbar #mobile-menu.open {
+  height: 200px; /* Adjust based on content */
+}
+
+#hero-name {
+  background: linear-gradient(45deg, #20C9AC, #FFD700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+#hero-name:hover {
+  transform: scale(1.1);
+}
+
+#hero-tagline {
+  opacity: 0;
+  animation: fadeIn 2s ease 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 0.9;
+  }
+}
+.section-heading {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.section-heading .section-heading-text {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(45deg, #20C9AC, #FFD700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  padding: 0 1rem;
+}
+.section-heading .section-heading-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(45deg, #20C9AC, #FFD700);
+  border-radius: 2px;
+  z-index: 1;
+  transition: width 0.3s ease;
+}
+.section-heading:hover .section-heading-line {
+  width: 150px;
+}
+
+.section-heading-text {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.glassmorphic-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.project-card {
+  position: relative;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+.project-card .tech-icon {
+  cursor: pointer;
+  position: relative;
+}
+.project-card .tech-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.project-card .tech-icon:hover::after {
+  opacity: 1;
+}
+.project-card .live-preview-btn {
+  position: relative;
+  overflow: hidden;
+}
+.project-card .live-preview-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+}
+.project-card .live-preview-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#contact-form .form-group input:focus + label, #contact-form .form-group input:not(:placeholder-shown) + label, #contact-form .form-group textarea:focus + label, #contact-form .form-group textarea:not(:placeholder-shown) + label {
+  top: -12px;
+  left: 0;
+  font-size: 12px;
+  color: #20C9AC;
+}
+#contact-form .form-group label {
+  pointer-events: none;
+}
+#contact-form button {
+  background: linear-gradient(45deg, #20C9AC, #FFD700);
+  position: relative;
+  overflow: hidden;
+}
+#contact-form button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+}
+#contact-form button:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+#contact-form #form-message.success {
+  color: #20C9AC;
+}
+#contact-form #form-message.error {
+  color: #FF6B6B;
+}
+
+.skill-card {
+  /* Hover Effect: Change to Original Brand Colors */
+  /* HTML5 Brand Color */
+  /* CSS3 Brand Color */
+  /* JavaScript Yellow */
+  /* React Blue */
+  /* Bootstrap Purple */
+  /* Supabase Green */
+  /* VS Code Blue */
+  /* VS Code Blue */
+  /* VS Code Blue */
+  /* VS Code Blue */
+}
+.skill-card .progress-circle svg {
+  transform: rotate(-90deg);
+}
+.skill-card .progress-circle svg path {
+  stroke-linecap: round;
+  transition: stroke-dasharray 1s ease;
+}
+.skill-card .progress-circle svg .text-dark-2 {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+.skill-card .progress-circle svg .text-teal {
+  stroke: #20C9AC;
+}
+.skill-card .skill-icon {
+  transition: transform 0.3s ease;
+}
+.skill-card .skill-icon:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+}
+.skill-card i {
+  font-size: 30px;
+  transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
+  /* Add Glow Effect */
+}
+.skill-card i:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+}
+.skill-card:hover i.fa-html5 {
+  color: #E34F26;
+}
+.skill-card:hover i.fa-css3-alt {
+  color: #1572B6;
+}
+.skill-card:hover i.fa-js {
+  color: #F7DF1E;
+}
+.skill-card:hover i.fa-react {
+  color: #61DBFB;
+}
+.skill-card:hover i.fa-bootstrap {
+  color: #7952B3;
+}
+.skill-card:hover i.fa-database {
+  color: #20C9AC;
+}
+.skill-card:hover i.fa-code {
+  color: #007ACC;
+}
+.skill-card:hover i.fa-git {
+  color: #F05032;
+}
+.skill-card:hover i.fa-github {
+  color: #181717;
+}
+.skill-card:hover i.fa-typescript {
+  color: #3178C6;
+}
+
+#contact-form .form-group input:focus + label, #contact-form .form-group input:not(:placeholder-shown) + label, #contact-form .form-group textarea:focus + label, #contact-form .form-group textarea:not(:placeholder-shown) + label {
+  top: -12px;
+  left: 0;
+  font-size: 12px;
+  color: #20C9AC;
+}
+#contact-form .form-group label {
+  pointer-events: none;
+}
+#contact-form button {
+  background: linear-gradient(45deg, #20C9AC, #FFD700);
+  position: relative;
+  overflow: hidden;
+}
+#contact-form button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+}
+#contact-form button:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+#contact-form #form-message.success {
+  color: #20C9AC;
+}
+#contact-form #form-message.error {
+  color: #FF6B6B;
+}
+
+.certification-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.certification-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+.certification-card .verify-btn {
+  position: relative;
+  overflow: hidden;
+}
+.certification-card .verify-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+}
+.certification-card .verify-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.footer .social-link svg {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.footer .social-link:hover svg {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(32, 201, 172, 0.6));
+}
+
+/*# sourceMappingURL=styles.css.map */
