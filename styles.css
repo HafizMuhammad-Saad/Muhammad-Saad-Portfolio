@@ -2,6 +2,37 @@ body {
   color: #555;
 }
 
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Glowing gold effect */
+}
+/* Scrollbar track */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #20C9AC, #FFD700); /* Teal to Gold */
+  border-radius: 5px;
+}
+
+/* Scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+  backdrop-filter: blur(10px); /* Glassmorphic effect */
+}
+/* Firefox scrollbar */
+
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: black;
+}
+
 .navbar .nav-link {
   position: relative;
   transition: color 0.3s ease;
@@ -63,6 +94,51 @@ body {
 @keyframes fadeIn {
   to {
     opacity: 0.9;
+  }
+}
+#day-night-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.sun, .moon {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.sun {
+  background: radial-gradient(circle, #FFD700, #FFA500);
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+}
+
+.moon {
+  background: radial-gradient(circle, #F0F0F0, #C0C0C0);
+  box-shadow: 0 0 50px rgba(240, 240, 240, 0.8);
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
   }
 }
 .section-heading {

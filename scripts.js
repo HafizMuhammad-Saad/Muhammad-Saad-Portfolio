@@ -1,3 +1,5 @@
+
+
 // NAVBAR START
 // Smooth Scroll for Nav Links
 document.querySelectorAll('.nav-link').forEach(link => {
@@ -38,6 +40,78 @@ gsap.from('.section-heading', {
     start: 'top 80%',
   },
 });
+
+
+
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "01 AI ML CODE FUTURE DATA ".split("");
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+const drops = Array(Math.floor(columns)).fill(1);
+
+// Slower speed by increasing interval time
+function drawMatrix() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.08)"; // Lower opacity
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "rgba(32, 201, 172, 0.7)"; // Teal color with transparency
+  ctx.font = `${fontSize}px monospace`;
+
+  for (let i = 0; i < drops.length; i++) {
+    if (Math.random() > 0.92) continue; // Reduce text density
+
+    const text = letters[Math.floor(Math.random() * letters.length)];
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+    drops[i]++;
+  }
+}
+
+setInterval(drawMatrix, 80); // Increased interval time for slower effect
+
+
+
+const dayNightBackground = document.getElementById('day-night-background');
+
+function setDayNightTheme() {
+  const now = new Date();
+  const hours = now.getHours();
+
+  // Daytime (6 AM to 6 PM)
+  if (hours >= 6 && hours < 18) {
+    // Add Sun
+    const sun = document.createElement('div');
+    sun.classList.add('sun');
+    dayNightBackground.appendChild(sun);
+  } 
+  // Nighttime (6 PM to 6 AM)
+  else {
+    // Add Moon
+    const moon = document.createElement('div');
+    moon.classList.add('moon');
+    dayNightBackground.appendChild(moon);
+
+    // Add Stars
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 2}s`;
+      dayNightBackground.appendChild(star);
+    }
+  }
+}
+
+setDayNightTheme();
 
 
 
@@ -94,14 +168,14 @@ scene.add(particlesMesh);
 camera.position.z = 5;
 
 // Animation Loop
-function animate() {
-  requestAnimationFrame(animate);
+function animateai() {
+  requestAnimationFrame(animateai);
   particlesMesh.rotation.x += 0.001;
   particlesMesh.rotation.y += 0.001;
   renderer.render(scene, camera);
 }
 
-animate();
+animateai();
 
 // 3D Tilt Effect
 const projectCards = document.querySelectorAll('.project-card');
@@ -154,11 +228,11 @@ const projects = [
     link: "https://social-memory-share-reminex-alphateam.netlify.app/"
   },
   {
-    title: "Project 1",
-    description: "A brief description of the project.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrM6kmvFf6H77FV7dOtQ32UBBvZTws51vU5A&s",
-    tech: ["React", "Tailwind CSS", "Node.js"],
-    link: "#"
+    title: "Todolist App",
+    description: "Todolist App with search functionality.",
+    image: "/images/todolist.PNG",
+    tech: ["Html", "Bootstrap", "Javascript", "Live"],
+    link: "https://saad-todolistapp.netlify.app/"
   },
   {
     title: "Project 2",
