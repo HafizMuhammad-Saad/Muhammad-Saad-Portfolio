@@ -31,15 +31,15 @@ mobileMenuToggle.addEventListener('click', () => {
 });
 //NAVBAR END
 
-gsap.from('.section-heading', {
-  opacity: 0,
-  y: 50,
-  duration: 1,
-  scrollTrigger: {
-    trigger: '.section-heading',
-    start: 'top 80%',
-  },
-});
+// gsap.from('.section-heading', {
+//   opacity: 0,
+//   y: 50,
+//   duration: 1,
+//   scrollTrigger: {
+//     trigger: '.section-heading',
+//     start: 'top 80%',
+//   },
+// });
 
 
 
