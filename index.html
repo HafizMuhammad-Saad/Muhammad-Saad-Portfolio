@@ -189,15 +189,14 @@
   <canvas id="matrix"></canvas>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20">
+  <!-- <section id="contact" class="py-20">
     <div class="container mx-auto px-4">
       <h2 class="section-heading">
-        <span class="section-heading-text">Contact</span>
+        <span class="section-heading-text">Let's Work Together</span>
         <span class="section-heading-line"></span>
       </h2>
-     <!-- Inside the Contact Section -->
-<!-- Inside the Contact Section -->
-    <form id="contact-form" class="glassmorphic-card p-8 max-w-md mx-auto">
+     
+    <form id="contact-form" class="future-form bg-gray-900/50 p-8 rounded-xl shadow-lg">
         <div class="form-group mb-6 relative">
         <input type="text" id="name" class="w-full p-2 bg-transparent border-b-2 border-teal focus:outline-none" required />
         <label for="name" class="absolute left-2 top-2 text-gray-400 transition-all">Name</label>
@@ -216,9 +215,51 @@
         <div id="form-message" class="mt-4 text-center hidden"></div>
       </form>
     </div>
-  </section>
+  </section> -->
 
+  <!-- Contact Section -->
+<section id="contact" class="py-20 bg-dark-2">
+  <div class="container mx-auto px-4">
+    <h2 class="section-heading text-center">
+      <span class="section-heading-text">Get in Touch</span>
+      <span class="section-heading-line"></span>
+    </h2>
 
+    <div class="glassmorphic-card p-8 max-w-4xl mx-auto">
+      <!-- Left Side - Motivational Message -->
+      <div class="contact-promo mb-8 text-center md:text-left">
+        <h3 class="text-3xl font-poppins font-bold mb-4 gradient-text">
+          Let's Work Together!
+        </h3>
+        <p class="text-lg opacity-80">
+          Whether you have a project in mind or just want to connect, I'm here to collaborate.
+          Let's transform your vision into exceptional digital experiences.
+        </p>
+      </div>
+
+      <!-- Right Side - Contact Form -->
+      <form id="contact-form" class="space-y-6"  action="https://formspree.io/f/manqpbkq"
+      method="POST">
+        <div class="form-group relative">
+          <input type="text" id="name" name="fullname" class="w-full p-2 bg-transparent border-b-2 border-teal focus:outline-none" required />
+          <label for="name" class="absolute left-2 top-2 text-gray-400 transition-all">Your Name</label>
+        </div>
+        <div class="form-group relative">
+          <input type="email" id="email" name="email" class="w-full p-2 bg-transparent border-b-2 border-teal focus:outline-none" required />
+          <label for="email" class="absolute left-2 top-2 text-gray-400 transition-all">Your Email</label>
+        </div>
+        <div class="form-group relative">
+          <textarea id="message" name="message" class="w-full p-2 bg-transparent border-b-2 border-teal focus:outline-none" rows="4" required></textarea>
+          <label for="message" class="absolute left-2 top-2 text-gray-400 transition-all">Your Message</label>
+        </div>
+        <button type="submit" class="w-full py-2 bg-gradient-to-r from-teal to-gold text-white font-bold rounded-lg hover:opacity-90 transition-all">
+          Send Message
+        </button>
+        <div id="form-message" class="mt-4 text-center hidden"></div>
+      </form>
+    </div>
+  </div>
+</section>
 
   <!--FOOTER SECTION-->
 <footer class="footer py-8 bg-dark-2 text-white">

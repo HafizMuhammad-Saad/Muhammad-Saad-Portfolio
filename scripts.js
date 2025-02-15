@@ -447,6 +447,10 @@ const certifications = [
     name: "Javascript Essential 1 ",
     verifyLink: "https://heyzine.com/flip-book/6ac624b005.html"
   },
+  {
+    name: "Learn Javascript",
+    verifyLink: "https://codeliber.com/certificates/m75xrnrwkr9r"
+  },
   // Add more certifications here
 ];
 
@@ -468,3 +472,4 @@ certifications.forEach(cert => {
 });
 
 // CERTIFICATION SECTION END
+
