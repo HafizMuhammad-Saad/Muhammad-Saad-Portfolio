@@ -235,11 +235,11 @@ const projects = [
     link: "https://saad-todolistapp.netlify.app/"
   },
   {
-    title: "Project 2",
-    description: "Another project description.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrM6kmvFf6H77FV7dOtQ32UBBvZTws51vU5A&s",
-    tech: ["Vue.js", "CSS", "Html"],
-    link: "#"
+    title: "Hackathon Project ",
+    description: "A landing page with best design.",
+    image: "/images/hackathon.PNG",
+    tech: ["Html", "Css", "Bootstrap"],
+    link: "https://saad-smithackathon.netlify.app/"
   },
 
   // Add more projects here
@@ -297,14 +297,14 @@ const skills = [
     { name: "HTML", icon: '<i class="fa-brands fa-html5"></i>', percent: 95 },
     { name: "CSS", icon: '<i class="fa-brands fa-css3-alt"></i>', percent: 90 },
     { name: "JavaScript", icon: '<i class="fa-brands fa-js"></i>', percent: 85 },
-    { name: "React", icon: '<i class="fa-brands fa-react"></i>', percent: 80 },
+    { name: "React", icon: '<i class="fa-brands fa-react"></i>', percent: 50 },
     { name: "Tailwind CSS", icon: '<i class="fa-solid fa-palette"></i>', percent: 75 },
     { name: "Bootstrap", icon: '<i class="fa-brands fa-bootstrap"></i>', percent: 85 },
     { name: "Supabase", icon: '<i class="fa-solid fa-database"></i>', percent: 70 },
     { name: "VS Code", icon: '<i class="fa-solid fa-code"></i>', percent: 90 },
     { name: "Git", icon: '<i class="fa-brands fa-git"></i>', percent: 80 },
     { name: "GitHub", icon: '<i class="fa-brands fa-github"></i>', percent: 90 },
-    { name: "TypeScript", icon: '🔷', percent: 85 },
+    { name: "TypeScript", icon: '🔷', percent: 65 },
    // Add more skills here
   ];
   
@@ -367,65 +367,43 @@ observer.observe(document.getElementById('skills'));
 
 
 //CONTACT SECTION
-const contactForm = document.getElementById('contact-form');
-const formMessage = document.getElementById('form-message');
 
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+  const contactForm = document.getElementById("contact-form");
+  const formMessage = document.getElementById("form-message");
 
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault(); // Prevent default form submission
 
-  // Simple Validation
-  if (!name || !email || !message) {
-    showMessage('Please fill in all fields.', 'error');
-    return;
-  }
+    const formData = new FormData(contactForm);
 
-  if (!validateEmail(email)) {
-    showMessage('Please enter a valid email address.', 'error');
-    return;
-  }
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
 
-  // Simulate Form Submission
-  setTimeout(() => {
-    showMessage('Message sent successfully!', 'success');
-    contactForm.reset();
-  }, 1000);
-});
-
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-}
-
-function showMessage(message, type) {
-  formMessage.textContent = message;
-  formMessage.className = `text-center ${type}`;
-  formMessage.classList.remove('hidden');
-
-  setTimeout(() => {
-    formMessage.classList.add('hidden');
-  }, 3000);
-}
-
-const formGroups = document.querySelectorAll('.form-group');
-
-formGroups.forEach(group => {
-  const input = group.querySelector('input, textarea');
-  const label = group.querySelector('label');
-
-  input.addEventListener('focus', () => {
-    label.classList.add('active');
-  });
-
-  input.addEventListener('blur', () => {
-    if (!input.value) {
-      label.classList.remove('active');
+      if (response.ok) {
+        showMessage("Message sent successfully!", "success");
+        contactForm.reset();
+      } else {
+        showMessage("Failed to send message. Please try again.", "error");
+      }
+    } catch (error) {
+      showMessage("An error occurred. Please try again.", "error");
     }
   });
-});
+
+  function showMessage(message, type) {
+    formMessage.textContent = message;
+    formMessage.className = `mt-4 text-center ${type}`;
+    formMessage.classList.remove("hidden");
+
+    setTimeout(() => {
+      formMessage.classList.add("hidden");
+    }, 3000);
+  }
+
 
 // CONTACT SECTION END
 
