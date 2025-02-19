@@ -429,6 +429,10 @@ const certifications = [
     name: "Learn Javascript",
     verifyLink: "https://codeliber.com/certificates/m75xrnrwkr9r"
   },
+  {
+    name: "Front-end for Beginners",
+    verifyLink: "https://www.sololearn.com/certificates/CC-LPA2AERF"
+  },
   // Add more certifications here
 ];
 
@@ -450,4 +454,3 @@ certifications.forEach(cert => {
 });
 
 // CERTIFICATION SECTION END
-
